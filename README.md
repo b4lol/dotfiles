@@ -27,16 +27,9 @@ This repository contains my personal dotfiles and automated container workstatio
    cd ~/Belgeler/Projeler/dotfiles
    ```
 
-2. **Setup Containers & Podman Policy**:
+2. **Run Installer (Deploys Dotfiles, Podman Policy & Distrobox Workstations)**:
    ```bash
-   ./setup_containers.sh
-   ```
-
-3. **Deploy Dotfiles**:
-   ```bash
-   cp -a config/* ~/.config/
-   cp -a bashrc ~/.bashrc
-   cp -a zshrc ~/.zshrc
+   ./install.sh
    ```
 
 ---
