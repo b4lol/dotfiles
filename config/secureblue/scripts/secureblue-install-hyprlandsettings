@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+echo ":: The script will install the SECUREBLUE Hyprland Settings app."
+echo ":: Please note: The app requires Flatpak."
+if gum confirm "Do you want to proceed?"; then
+    secureblue_app="com.secureblue.hyprlandsettings"
+    secureblue_app_repo="hyprland-settings"
+    echo ":: Installing $secureblue_app"
+    bash -c "$(curl -s https://raw.githubusercontent.com/secureblue/$secureblue_app_repo/master/setup.sh)"
+fi

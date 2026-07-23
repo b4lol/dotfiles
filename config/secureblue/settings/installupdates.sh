@@ -1,0 +1,1 @@
+$(cat ~/.config/secureblue/settings/terminal.sh) --class dotfiles-floating -e ~/.config/secureblue/scripts/secureblue-install-system-updates

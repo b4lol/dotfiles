@@ -1,0 +1,13 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Mullvad Browser (on fedora)
+GenericName=Web Browser (on fedora)
+Comment=Mullvad Browser is a privacy-focused web browser designed to minimize tracking and fingerprinting.
+Categories=Network;WebBrowser;
+Exec=/usr/bin/distrobox-enter  -n fedora  --   /usr/lib/mullvad-browser/start-mullvad-browser  %u 
+Icon=/home/user/.local/share/icons/hicolor/128x128/apps/mullvad-browser.png
+StartupNotify=true
+StartupWMClass=Mullvad Browser
+MimeType=text/html;text/xml;application/xhtml+xml;x-scheme-handler/http;x-scheme-handler/https;
+Terminal=false

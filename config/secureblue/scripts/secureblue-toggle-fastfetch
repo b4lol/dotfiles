@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+if [ -f $HOME/.config/secureblue/settings/hide-fastfetch ]; then
+    echo ":: Show fastfetch"
+    rm $HOME/.config/secureblue/settings/hide-fastfetch
+else
+    echo ":: Hide fastfetch"
+    touch $HOME/.config/secureblue/settings/hide-fastfetch
+fi

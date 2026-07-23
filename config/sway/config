@@ -1,0 +1,139 @@
+# Master Sway Configuration for Secureblue / Fedora
+# Maintainer setup
+
+### SystemD & Session Integration
+exec /usr/libexec/sway-systemd/assign-cgroups.py
+exec /usr/libexec/sway-systemd/session.sh
+exec gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
+exec gsettings set org.gnome.desktop.interface gtk-theme 'Adwaita-dark'
+xwayland disable
+
+### Variables
+set $mod Mod4
+set $term foot
+set $menu rofi -show drun
+
+### Appearance & Theme
+font pango:Cantarell 11
+
+# Window Gaps (Hyprland stili boşluklar)
+gaps inner 14
+gaps outer 10
+smart_gaps off
+smart_borders off
+
+# Window Borders & Titlebars (Pencere başlık çubukları tamamen kaldırıldı)
+default_border pixel 2
+default_floating_border pixel 2
+for_window [app_id=".*"] border pixel 2
+for_window [class=".*"] border pixel 2
+titlebar_border_thickness 0
+
+# Wallpaper (Native Sway Output)
+output * bg /home/user/.config/sway/wallpaper.jpg fill
+
+# Color Scheme (Tokyo Night Dark / Modern Cyan)
+# class                 border  backgr. text    indicator child_border
+client.focused          #7aa2f7 #1f2335 #c0caf5 #7dcfff   #7aa2f7
+client.focused_inactive #1f2335 #1a1b26 #a9b1d6 #1f2335   #1f2335
+client.unfocused        #16161e #16161e #565f89 #16161e   #16161e
+client.urgent           #f7768e #f7768e #ffffff #f7768e   #f7768e
+
+### Status Bar (Waybar) & Autostart
+exec_always sh -c "pkill waybar; sleep 0.3; env LC_ALL=tr_TR.UTF-8 waybar"
+
+exec dunst
+
+### Input Devices Configuration
+
+# Keyboard (Turkish Q)
+input "type:keyboard" {
+    xkb_layout "tr"
+}
+
+# Touchpad (Dokunmatik Sol Tık / Sağ Tık & Tıklama)
+input "type:touchpad" {
+    dwt enabled
+    tap enabled
+    tap_button_map lrm
+    click_method clickfinger
+    middle_emulation disabled
+    drag disabled
+    drag_lock disabled
+}
+
+### Keybindings (Physical keycodes for Turkish layout compatibility)
+
+# System Software & Application Shortcuts (Terminal: Meta+Enter / Alt+Enter)
+bindsym $mod+Return exec /usr/bin/foot
+bindsym --to-code $mod+Return exec /usr/bin/foot
+bindsym Mod1+Return exec /usr/bin/foot
+bindsym --to-code Mod1+Return exec /usr/bin/foot
+bindsym $mod+KP_Enter exec /usr/bin/foot
+bindsym --to-code $mod+KP_Enter exec /usr/bin/foot
+
+bindsym $mod+d exec $menu
+bindsym --to-code $mod+d exec $menu
+bindsym Mod1+F2 exec $menu
+bindsym --to-code $mod+w exec trivalent
+bindsym --to-code $mod+b exec trivalent
+bindsym --to-code $mod+e exec thunar
+bindsym --to-code $mod+a exec pavucontrol
+bindsym --to-code $mod+n exec nm-connection-editor
+bindsym --to-code $mod+x exec /home/user/.config/rofi/powermenu.sh
+bindsym --to-code $mod+Shift+e exec /home/user/.config/rofi/powermenu.sh
+bindsym --to-code Control+Shift+Escape exec foot -e btop
+bindsym --to-code $mod+Shift+Escape exec foot -e btop
+
+# Window Control
+bindsym --to-code $mod+q kill
+bindsym --to-code $mod+f fullscreen toggle
+bindsym --to-code $mod+Shift+space floating toggle
+bindsym --to-code $mod+space focus mode_toggle
+
+# Focus movement
+bindsym --to-code $mod+Left focus left
+bindsym --to-code $mod+Down focus down
+bindsym --to-code $mod+Up focus up
+bindsym --to-code $mod+Right focus right
+
+bindsym --to-code $mod+h focus left
+bindsym --to-code $mod+j focus down
+bindsym --to-code $mod+k focus up
+bindsym --to-code $mod+l focus right
+
+# Move windows
+bindsym --to-code $mod+Shift+Left move left
+bindsym --to-code $mod+Shift+Down move down
+bindsym --to-code $mod+Shift+Up move up
+bindsym --to-code $mod+Shift+Right move right
+
+bindsym --to-code $mod+Shift+h move left
+bindsym --to-code $mod+Shift+j move down
+bindsym --to-code $mod+Shift+k move up
+bindsym --to-code $mod+Shift+l move right
+
+# Workspaces
+bindsym --to-code $mod+1 workspace number 1
+bindsym --to-code $mod+2 workspace number 2
+bindsym --to-code $mod+3 workspace number 3
+bindsym --to-code $mod+4 workspace number 4
+bindsym --to-code $mod+5 workspace number 5
+
+bindsym --to-code $mod+Shift+1 move container to workspace number 1
+bindsym --to-code $mod+Shift+2 move container to workspace number 2
+bindsym --to-code $mod+Shift+3 move container to workspace number 3
+bindsym --to-code $mod+Shift+4 move container to workspace number 4
+bindsym --to-code $mod+Shift+5 move container to workspace number 5
+
+# Reload Sway Config
+bindsym --to-code $mod+Shift+c reload
+
+# Media & Volume Controls
+bindsym XF86AudioRaiseVolume exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+
+bindsym XF86AudioLowerVolume exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-
+bindsym XF86AudioMute exec wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
+
+# Screenshot Shortcuts
+bindsym Print exec grim -g "$(slurp)" ~/Pictures/screenshot_$(date +%Y%m%d_%H%M%S).png
+bindsym --to-code $mod+Shift+s exec grim -g "$(slurp)" ~/Pictures/screenshot_$(date +%Y%m%d_%H%M%S).png

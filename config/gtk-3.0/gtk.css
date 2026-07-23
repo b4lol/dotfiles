@@ -1,0 +1,78 @@
+/* Tokyo Night Dark theme overrides for GTK3 / Thunar */
+
+@define-color theme_bg_color #1a1b26;
+@define-color theme_fg_color #c0caf5;
+@define-color theme_base_color #16161e;
+@define-color theme_text_color #c0caf5;
+@define-color theme_selected_bg_color #7aa2f7;
+@define-color theme_selected_fg_color #1a1b26;
+
+/* Window & Headerbar */
+window, dialog {
+    background-color: #1a1b26;
+    color: #c0caf5;
+}
+
+headerbar {
+    background-color: #16161e;
+    color: #c0caf5;
+    border-bottom: 1px solid rgba(122, 162, 247, 0.2);
+    padding: 6px;
+}
+
+/* Thunar Sidebar & Main View */
+.thunar .sidebar,
+treeview.navigation-sidebar {
+    background-color: #16161e;
+    color: #a9b1d6;
+    border-right: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.thunar .sidebar row:selected,
+treeview.navigation-sidebar row:selected {
+    background-color: #7aa2f7;
+    color: #1a1b26;
+    font-weight: bold;
+    border-radius: 6px;
+}
+
+/* Thunar Pathbar / Toolbar buttons */
+.path-bar button {
+    background-color: #24283b;
+    color: #7dcfff;
+    border-radius: 6px;
+    border: 1px solid rgba(125, 207, 255, 0.2);
+    margin: 2px;
+}
+
+.path-bar button:hover {
+    background-color: #7aa2f7;
+    color: #1a1b26;
+}
+
+/* Scrollbars */
+scrollbar slider {
+    min-width: 6px;
+    min-height: 6px;
+    border-radius: 10px;
+    background-color: rgba(122, 162, 247, 0.3);
+}
+
+scrollbar slider:hover {
+    background-color: #7aa2f7;
+}
+
+/* Menus & Tooltips */
+menu, .menu {
+    background-color: #1a1b26;
+    color: #c0caf5;
+    border: 1px solid #7aa2f7;
+    border-radius: 8px;
+    padding: 4px;
+}
+
+menuitem:hover {
+    background-color: #7aa2f7;
+    color: #1a1b26;
+    border-radius: 4px;
+}

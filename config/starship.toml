@@ -1,0 +1,48 @@
+# Starship Prompt Configuration (Tokyo Night / Neon Pastel)
+add_newline = true
+
+format = """
+[┌──](bold #7aa2f7) $username$hostname$directory$git_branch$git_status$package$python$node$cmd_duration
+[└─>](bold #7aa2f7) $character"""
+
+[character]
+success_symbol = "[❯](bold #7aa2f7)"
+error_symbol = "[❯](bold #f7768e)"
+
+[username]
+style_user = "bold #bb9af7"
+style_root = "bold #f7768e"
+format = "[$user]($style)"
+show_always = false
+
+[hostname]
+ssh_only = true
+format = "@[$hostname](bold #7dcfff) "
+
+[directory]
+style = "bold #7dcfff"
+format = "[$path]($style) "
+truncation_length = 3
+truncation_symbol = "…/"
+
+[git_branch]
+symbol = " "
+style = "bold #bb9af7"
+format = "on [$symbol$branch]($style) "
+
+[git_status]
+style = "bold #f7768e"
+format = "([$all_status$ahead_behind]($style) )"
+
+[cmd_duration]
+min_time = 500
+style = "bold #e0af68"
+format = "took [$duration]($style) "
+
+[python]
+symbol = "🐍 "
+style = "bold #9ece6a"
+
+[nodejs]
+symbol = "⬢ "
+style = "bold #9ece6a"

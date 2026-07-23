@@ -1,0 +1,135 @@
+configuration {
+    modes: "combi,drun,run,calc:/home/user/.config/rofi/calculator.sh,web:/home/user/.config/rofi/websearch.sh,window,filebrowser";
+    combi-modes: "drun,run,calc,web,window";
+    font: "Cantarell 12";
+    show-icons: true;
+    terminal: "foot";
+    drun-display-format: "{icon} {name}";
+    location: 0;
+    yoffset: 0;
+    xoffset: 0;
+    disable-history: false;
+    hide-scrollbar: true;
+
+    display-combi: " 🔍  KRunner";
+    display-drun: " 🚀 Uygulamalar";
+    display-run: " ⚡ Komut Çalıştır";
+    display-calc: " 🧮 Hesap Makinesi";
+    display-web: " 🌐 Web Araması";
+    display-window: " 🪟 Pencereler";
+    display-filebrowser: " 📁 Dosyalar";
+
+    kb-mode-next: "Shift+Right,Control+Tab";
+    kb-mode-previous: "Shift+Left,Control+Shift+Tab";
+}
+
+* {
+    bg: #1a1b26;
+    bg-alt: #24283b;
+    bg-selected: #7aa2f7;
+    fg: #c0caf5;
+    fg-alt: #565f89;
+    border-color: #7aa2f7;
+
+    background-color: transparent;
+    text-color: @fg;
+    margin: 0;
+    padding: 0;
+}
+
+window {
+    background-color: @bg;
+    border: 2px solid;
+    border-color: @border-color;
+    border-radius: 16px;
+    width: 750px;
+    padding: 16px;
+}
+
+mainbox {
+    background-color: transparent;
+    children: [ inputbar, listview ];
+    spacing: 12px;
+}
+
+inputbar {
+    background-color: @bg-alt;
+    border-radius: 12px;
+    padding: 12px 18px;
+    children: [ prompt, entry ];
+    border: 1px;
+    border-color: #7aa2f7;
+}
+
+prompt {
+    background-color: transparent;
+    text-color: #7aa2f7;
+    font: "Cantarell Bold 13";
+}
+
+entry {
+    background-color: transparent;
+    placeholder: "Ara, hesapla veya komut çalıştır... (Ctrl+Tab mod değiştirir)";
+    placeholder-color: @fg-alt;
+    text-color: @fg;
+    padding: 0 10px;
+    font: "Cantarell 13";
+}
+
+listview {
+    background-color: transparent;
+    columns: 1;
+    lines: 7;
+    fixed-height: false;
+    spacing: 6px;
+    dynamic: true;
+}
+
+element {
+    background-color: transparent;
+    text-color: @fg;
+    padding: 10px 16px;
+    border-radius: 10px;
+    children: [ element-icon, element-text ];
+    spacing: 14px;
+}
+
+element normal.normal,
+element alternate.normal {
+    background-color: transparent;
+    text-color: @fg;
+}
+
+element normal.urgent,
+element alternate.urgent {
+    background-color: #f7768e;
+    text-color: #1a1b26;
+}
+
+element normal.active,
+element alternate.active {
+    background-color: @bg-alt;
+    text-color: #7aa2f7;
+}
+
+element selected.normal,
+element selected.active {
+    background-color: @bg-selected;
+    text-color: #1a1b26;
+}
+
+element selected.urgent {
+    background-color: #f7768e;
+    text-color: #1a1b26;
+}
+
+element-icon {
+    background-color: transparent;
+    size: 26px;
+}
+
+element-text {
+    background-color: transparent;
+    text-color: inherit;
+    vertical-align: 0.5;
+}
