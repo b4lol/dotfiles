@@ -42,4 +42,4 @@ This repository contains my personal dotfiles and automated container workstatio
 ---
 
 ## 📄 License
-MIT License. Free for personal and commercial use.
+GNU General Public License v3.0 (GPL-3.0). Free for personal and commercial use under the terms of the GNU GPLv3.
